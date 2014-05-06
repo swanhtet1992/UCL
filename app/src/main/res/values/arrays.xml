@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="badge_colors">
+        <item>@color/blue</item>
+        <item>@color/purple</item>
+        <item>@color/green</item>
+        <item>@color/orange</item>
+        <item>@color/blue_2</item>
+        <item>@color/purple_2</item>
+        <item>@color/green_2</item>
+        <item>@color/orange_2</item>
+    </integer-array>
+</resources>

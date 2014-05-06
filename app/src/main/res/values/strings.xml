@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">UCL</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_about">About</string>
+
+    <string name="title_section1">Group A</string>
+    <string name="title_section2">Group B</string>
+    <string name="title_section3">Group C</string>
+    <string name="title_section4">Group D</string>
+    <string name="title_section5">Group E</string>
+    <string name="title_section6">Group F</string>
+    <string name="title_section7">Group G</string>
+    <string name="title_section8">Group H</string>
+</resources>

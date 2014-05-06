@@ -1,0 +1,49 @@
+{
+    date: "7.5.2014"
+	groups:[
+	    {
+	    	group: "A",
+	    	match:{
+	    		team_1: "WYTU",
+	    		team_2: "Hpa-An University",
+	    		goal_1: "",
+	    		goal_2: "",
+	    	},
+	    	time: "16:00",
+	    	stadium: "YUSC"
+	    },
+	    {
+	    	group: "A",
+	    	match:{
+	    		team_1: "NRDC",
+	    		team_2: "Pyay University",
+	    		goal_1: "",
+	    		goal_2: "",
+	    	},
+	    	time: "16:00",
+	    	stadium: "Nawaday"
+	    },
+	    {
+	    	group: "H",
+	    	match:{
+	    		team_1: "Hinthada University",
+	    		team_2: "TU (Bhamo)",
+	    		goal_1: "",
+	    		goal_2: "",
+	    	},
+	    	time: "16:00",
+	    	stadium: "Tha Htone"
+	    },
+	    {
+	    	group: "H",
+	    	match:{
+	    		team_1: "YUFL",
+	    		team_2: "UM (2)",
+	    		goal_1: "",
+	    		goal_2: "",
+	    	},
+	    	time: "16:00",
+	    	stadium: "Aung San"
+	    }
+	]
+}
