@@ -25,4 +25,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:5.0.0'
     compile 'com.google.code.gson:gson:2.2.+'
     compile 'com.koushikdutta.ion:ion:1.2.+'
+    compile 'com.j256.ormlite:ormlite-android:4.47'
 }
