@@ -3,6 +3,9 @@ UCL
 
 Android application for [Universities Champions League](https://www.facebook.com/uclmyanmar).
 
+![Alt](https://raw.github.com/sHa92/UCL/master/device-2014-05-06-193551.png)
+![Alt](https://raw.github.com/sHa92/UCL/master/device-2014-05-06-193610.png)
+
 Current features:
 -----------------
 
