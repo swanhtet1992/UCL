@@ -1,12 +1,18 @@
 package me.sh.android.ucl;
 
+import android.app.AlertDialog;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
+import android.text.SpannableStringBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import me.sh.android.ucl.fragment.MainFragment;
@@ -108,8 +114,22 @@ public class MainActivity extends ActionBarActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_refresh) {
-            Toast.makeText(this, "Coming Soon...", Toast.LENGTH_LONG).show();
+        if (id == R.id.action_about) {
+            PackageManager pm = getPackageManager();
+            String packageName = getPackageName();
+            String versionName;
+            try {
+                assert pm != null;
+                PackageInfo info = pm.getPackageInfo(packageName, 0);
+                versionName = info.versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                versionName = "";
+            }
+            new AlertDialog.Builder(this)
+                    .setTitle("About")
+                    .setMessage(new SpannableStringBuilder().append(
+                            Html.fromHtml(getString(R.string.about_body, versionName))))
+                    .show();
             return true;
         }
         return super.onOptionsItemSelected(item);

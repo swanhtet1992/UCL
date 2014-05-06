@@ -15,4 +15,29 @@
     <string name="title_section6">Group F</string>
     <string name="title_section7">Group G</string>
     <string name="title_section8">Group H</string>
+
+    <string name="about_body">
+    <![CDATA[
+        <b>UCL</b><br>
+        Version %s<br><br>
+        Android application for <a href="https://www.facebook.com/uclmyanmar">Universities Champions League</a>.
+        <hr>
+        <br/>
+        <br/>
+        Get the source code at: <a href="https://github.com/sHa92/UCL">github</a>
+        <br/>
+        <br/>
+        Developed by:<br/>
+        <a href="https://github.com/sHa92">Swan Htet Aung</a> (WYTU)
+        <br/>
+        <br/>
+        Data Entry by:<br/>
+        <a href="https://www.facebook.com/kyawkhine">Kyaw Khine<a> (UM2)
+        <br/>
+        <br/>
+        Special Thanks to:<br/>
+        <a href="https://github.com/yelinaung">Ye Lin Aung<a><br/>
+        <a href="https://github.com/thanyawzinmin">Tin Aung Lin</a><br/>
+    ]]>
+  </string>
 </resources>

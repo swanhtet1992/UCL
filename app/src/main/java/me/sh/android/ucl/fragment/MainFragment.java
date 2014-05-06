@@ -60,7 +60,6 @@ public class MainFragment extends Fragment {
         ButterKnife.inject(this, rootView);
         dialog = new ProgressDialog(getActivity());
 
-        setHasOptionsMenu(true);
         return rootView;
     }
 
