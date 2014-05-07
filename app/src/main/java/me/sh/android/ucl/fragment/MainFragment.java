@@ -29,7 +29,6 @@ import butterknife.InjectView;
 import me.sh.android.ucl.MainActivity;
 import me.sh.android.ucl.R;
 import me.sh.android.ucl.adapter.FixturesAdapter;
-import me.sh.android.ucl.db.GroupItemDao;
 import me.sh.android.ucl.model.GroupItem;
 
 /**
@@ -41,7 +40,6 @@ public class MainFragment extends Fragment {
     private FixturesAdapter mAdapter;
     private int groupNum;
     private ProgressDialog dialog;
-    private GroupItemDao mGroupItemDao;
     @InjectView(R.id.fixture_list_view)
     ListView listView;
 
@@ -62,23 +60,13 @@ public class MainFragment extends Fragment {
         ButterKnife.inject(this, rootView);
         dialog = new ProgressDialog(getActivity());
 
-        mGroupItemDao = new GroupItemDao(getActivity());
-
         return rootView;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        mItems = (ArrayList<GroupItem>) mGroupItemDao.getGroupByGroupNum(groupNum);
-
-        if (!mItems.isEmpty()) {
-            mAdapter = new FixturesAdapter(getActivity(), mItems);
-            listView.setAdapter(mAdapter);
-        } else {
-            getAllFixtures(groupNum);
-        }
+        getAllFixtures(groupNum);
     }
 
     @Override
@@ -88,11 +76,7 @@ public class MainFragment extends Fragment {
         ((MainActivity) activity).onSectionAttached(groupNum);
     }
 
-    void getAllFixtures(final int group) {
-
-        // clear all the items first
-        mItems.clear();
-
+    void getAllFixtures(int group) {
         Connection connection = new Connection(getActivity());
 
         if (connection.isConnected()) {
@@ -146,10 +130,6 @@ public class MainFragment extends Fragment {
                                 if (!item.getMatch().getGoal1().equalsIgnoreCase("")) {
                                     item.getMatch().setScore();
                                 }
-
-                                item.setGroupId(group);
-
-                                mGroupItemDao.create(item);
                                 mItems.add(item);
                                 mAdapter = new FixturesAdapter(getActivity(), mItems);
                                 listView.setAdapter(mAdapter);
