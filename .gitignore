@@ -42,5 +42,7 @@ proguard/
 *.eml
 
 .DS_Store
+
+# Crashlytics
 app/src/main/res/values/crashlytics.xml
 com_crashlytics_export_strings.xml
