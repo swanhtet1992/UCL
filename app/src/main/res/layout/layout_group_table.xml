@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#aaa"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="#" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Team" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="P" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="W" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="D" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="L" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="F" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="A" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="GD" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Pts" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ddd"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/no"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/team_name"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="WYTU" />
+
+        <TextView
+            android:id="@+id/play"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="3" />
+
+        <TextView
+            android:id="@+id/win"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="2" />
+
+        <TextView
+            android:id="@+id/draw"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/lose"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/goal_for"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="5" />
+
+        <TextView
+            android:id="@+id/goal_allow"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/goal_diff"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="4" />
+
+        <TextView
+            android:id="@+id/points"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="6" />
+    </TableRow>
+</TableLayout>
