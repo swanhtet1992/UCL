@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -62,6 +65,8 @@ public class MainFragment extends Fragment {
         ButterKnife.inject(this, rootView);
         dialog = new ProgressDialog(getActivity());
 
+        setHasOptionsMenu(true);
+
         mGroupItemDao = new GroupItemDao(getActivity());
 
         return rootView;
@@ -86,6 +91,24 @@ public class MainFragment extends Fragment {
         super.onAttach(activity);
         groupNum = getArguments().getInt(ARG_SECTION_NUMBER);
         ((MainActivity) activity).onSectionAttached(groupNum);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.main_fragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_sync:
+                getAllFixtures(groupNum);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 
     void getAllFixtures(final int group) {
