@@ -46,3 +46,5 @@ proguard/
 # Crashlytics
 app/src/main/res/values/crashlytics.xml
 com_crashlytics_export_strings.xml
+
+app/src/main/res/values/analytics.xml
