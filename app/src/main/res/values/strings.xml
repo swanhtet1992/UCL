@@ -6,7 +6,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_about">About</string>
-
     <string name="title_section1">Group A</string>
     <string name="title_section2">Group B</string>
     <string name="title_section3">Group C</string>
@@ -15,9 +14,8 @@
     <string name="title_section6">Group F</string>
     <string name="title_section7">Group G</string>
     <string name="title_section8">Group H</string>
-
     <string name="about_body">
-    <![CDATA[
+<![CDATA[
         <b>UCL</b><br>
         Version %s<br><br>
         Android application for <a href="https://www.facebook.com/uclmyanmar">Universities Champions League</a>.
@@ -39,5 +37,9 @@
         <a href="https://github.com/yelinaung">Ye Lin Aung<a><br/>
         <a href="https://github.com/thanyawzinmin">Tin Aung Lin</a><br/>
     ]]>
-  </string>
+    </string>
+    <string name="title_activity_blah">Blah</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
