@@ -28,8 +28,7 @@ public class DbMgr {
 
     public DbHelper getHelper(Context context) {
         if (dbHelper == null) {
-            dbHelper =
-                    OpenHelperManager.getHelper(context, DbHelper.class);
+            dbHelper = OpenHelperManager.getHelper(context, DbHelper.class);
         }
         return dbHelper;
     }

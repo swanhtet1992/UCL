@@ -64,6 +64,7 @@ public class MainFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_match, container, false);
         ButterKnife.inject(this, rootView);
         dialog = new ProgressDialog(getActivity());
+        mGroupItemDao = new GroupItemDao(getActivity());
 
         setHasOptionsMenu(true);
 
