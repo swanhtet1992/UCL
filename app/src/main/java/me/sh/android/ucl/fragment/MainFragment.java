@@ -64,7 +64,7 @@ public class MainFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_match, container, false);
         ButterKnife.inject(this, rootView);
         dialog = new ProgressDialog(getActivity());
-        mGroupItemDao = new GroupItemDao(getActivity());
+        mGroupItemDao = new GroupItemDao(getActivity()); // @yelinaung don't forget to instantiate object. hehe :P
 
         setHasOptionsMenu(true);
 
@@ -169,6 +169,7 @@ public class MainFragment extends Fragment {
                                     item.getMatch().setScore();
                                 }
                                 mItems.add(item);
+                                item.setGroupId(groupNum); // @yelinaung why you forgot to set this? T_T
                                 mGroupItemDao.create(item);
                                 mAdapter = new FixturesAdapter(getActivity(), mItems);
                                 listView.setAdapter(mAdapter);
