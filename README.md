@@ -17,7 +17,6 @@ To Do
 
  * Proper backend API for Live Scores
  * Redesign the layout
- * Offline support.
 
 Notes:
 -----
@@ -26,6 +25,13 @@ Notes:
  * Used plain JSON files for showing fixtures and updating goal scores. Special thanks to [Ye Lin Aung](https://github.com/yelinaung) for [JSONForUCL](https://github.com/sHa92/JsonForUCL) codes.
  * If someone interested in writing backend API, please contact me.
  * Feel free to fork and send me pull requests.
+ * Make sure you create your own String resource xml file. Let's says `crashlytics.xml` under `app/src/main/res/values` and put your own values with the following contents.
+
+ ```xml
+<resources>
+    <string name="crashlytics_key">  PUT YOUR KEY HERE </string>
+</resources>
+ ```
 
 Special Thanks
 --------------
