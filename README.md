@@ -33,3 +33,8 @@ Special Thanks
  * Kyaw Khine for really great Data Entry
  * Ye Lin Aung for JSON files solutions.
  * Tin Aung Lin for server setup.
+
+License
+-------
+
+Copyright (c) 2014 Swan Htet Aung. Licensed under the GNU GENERAL PUBLIC LICENSE Version 3 license.
