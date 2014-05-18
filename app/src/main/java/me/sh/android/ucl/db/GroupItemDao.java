@@ -48,7 +48,8 @@ public class GroupItemDao {
 
     public int create(GroupItem groupItem) {
         try {
-            return mGroupItemDao.create(groupItem);
+            mGroupItemDao.createOrUpdate(groupItem);
+            return 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }

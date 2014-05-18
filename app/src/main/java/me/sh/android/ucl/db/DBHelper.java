@@ -32,7 +32,7 @@ import me.sh.android.ucl.model.MatchItem;
 /**
  * Created by Ye Lin Aung on 14/05/07.
  */
-public class DbHelper extends OrmLiteSqliteOpenHelper {
+class DbHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "ucl.db";
     /**

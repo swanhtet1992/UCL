@@ -50,6 +50,7 @@ public class FixturesAdapter extends ArrayAdapter<GroupItem> {
         }
 
         holder.date.setText(mItems.get(position).getDate());
+
         holder.team1.setText(mItems.get(position).getMatch().getTeam1());
         holder.team2.setText(mItems.get(position).getMatch().getTeam2());
         holder.score.setText(mItems.get(position).getMatch().getScore());

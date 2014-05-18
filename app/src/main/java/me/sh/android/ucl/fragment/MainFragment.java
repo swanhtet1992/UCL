@@ -25,6 +25,7 @@ import com.google.gson.JsonParser;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
@@ -33,6 +34,7 @@ import me.sh.android.ucl.MainActivity;
 import me.sh.android.ucl.R;
 import me.sh.android.ucl.adapter.FixturesAdapter;
 import me.sh.android.ucl.db.GroupItemDao;
+import me.sh.android.ucl.db.MatchItemDao;
 import me.sh.android.ucl.model.GroupItem;
 
 /**
@@ -65,7 +67,6 @@ public class MainFragment extends Fragment {
         ButterKnife.inject(this, rootView);
         dialog = new ProgressDialog(getActivity());
         mGroupItemDao = new GroupItemDao(getActivity()); // @yelinaung don't forget to instantiate object. hehe :P
-
         setHasOptionsMenu(true);
 
         return rootView;
@@ -76,8 +77,8 @@ public class MainFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         mItems = (ArrayList<GroupItem>) mGroupItemDao.getGroupByGroupNum(groupNum);
-
         if (!mItems.isEmpty()) {
+
             mAdapter = new FixturesAdapter(getActivity(), mItems);
             listView.setAdapter(mAdapter);
         } else {
@@ -112,8 +113,7 @@ public class MainFragment extends Fragment {
 
     void getAllFixtures(final int group) {
 
-        // clear all the items first
-        mItems.clear();
+
 
         Connection connection = new Connection(getActivity());
 
@@ -156,6 +156,7 @@ public class MainFragment extends Fragment {
                         @Override
                         public void onCompleted(Exception e, String result) {
                             dialog.dismiss();
+                            mItems.clear();
                             JsonParser parser = new JsonParser();
                             JsonObject jObj = (JsonObject) parser.parse(result);
                             JsonArray jArray = jObj.getAsJsonArray("fixture");
@@ -164,17 +165,25 @@ public class MainFragment extends Fragment {
                             for (int i = 0; i < jArray.size(); i++) {
                                 JsonObject obj = jArray.get(i).getAsJsonObject();
                                 GroupItem item = gson.fromJson(obj, GroupItem.class);
-
+                                if(i==0) {
+                                    int updateItem = 1;
+                                    item.setId(updateItem);
+                                }else {
+                                    item.setId(i+1);
+                                }
                                 if (!item.getMatch().getGoal1().equalsIgnoreCase("")) {
                                     item.getMatch().setScore();
                                 }
+                                item.setGroupId(groupNum);//i am not clear this is require or not
+                                // @yelinaung why you forgot to set this? T_T
                                 mItems.add(item);
-                                item.setGroupId(groupNum); // @yelinaung why you forgot to set this? T_T
                                 mGroupItemDao.create(item);
                                 mAdapter = new FixturesAdapter(getActivity(), mItems);
                                 listView.setAdapter(mAdapter);
                                 mAdapter.notifyDataSetChanged();
+
                             }
+
                         }
                     });
         } else {

@@ -46,7 +46,8 @@ public class MatchItemDao {
 
     public int create(MatchItem matchItem) {
         try {
-            return mMatchItemDao.create(matchItem);
+              mMatchItemDao.createIfNotExists(matchItem);
+            return 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
