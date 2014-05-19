@@ -25,7 +25,6 @@ import com.google.gson.JsonParser;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
@@ -34,7 +33,6 @@ import me.sh.android.ucl.MainActivity;
 import me.sh.android.ucl.R;
 import me.sh.android.ucl.adapter.FixturesAdapter;
 import me.sh.android.ucl.db.GroupItemDao;
-import me.sh.android.ucl.db.MatchItemDao;
 import me.sh.android.ucl.model.GroupItem;
 
 /**
@@ -161,10 +159,10 @@ public class MainFragment extends Fragment {
                             Gson gson = new GsonBuilder().create();
 
                             for (int i = 1; i < jArray.size(); i++) {
-                                JsonObject obj = jArray.get(i-1).getAsJsonObject();
+                                JsonObject obj = jArray.get(i - 1).getAsJsonObject();
                                 GroupItem item = gson.fromJson(obj, GroupItem.class);
                                 item.setGroupId(groupNum);//i am not clear this is require or not
-                                    // @yelinaung why you forgot to set this? T_T
+                                // @yelinaung why you forgot to set this? T_T
                                 item.setId(i);
                                 if (!item.getMatch().getGoal1().equalsIgnoreCase("")) {
                                     item.getMatch().setScore();
@@ -177,7 +175,6 @@ public class MainFragment extends Fragment {
                                 mAdapter.notifyDataSetChanged();
 
                             }
-
 
 
                         }
