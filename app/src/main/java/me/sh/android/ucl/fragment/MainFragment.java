@@ -78,7 +78,6 @@ public class MainFragment extends Fragment {
 
         mItems = (ArrayList<GroupItem>) mGroupItemDao.getGroupByGroupNum(groupNum);
         if (!mItems.isEmpty()) {
-
             mAdapter = new FixturesAdapter(getActivity(), mItems);
             listView.setAdapter(mAdapter);
         } else {
@@ -112,7 +111,7 @@ public class MainFragment extends Fragment {
     }
 
     void getAllFixtures(final int group) {
-
+        mItems.clear();
 
 
         Connection connection = new Connection(getActivity());
@@ -156,26 +155,21 @@ public class MainFragment extends Fragment {
                         @Override
                         public void onCompleted(Exception e, String result) {
                             dialog.dismiss();
-                            mItems.clear();
                             JsonParser parser = new JsonParser();
                             JsonObject jObj = (JsonObject) parser.parse(result);
                             JsonArray jArray = jObj.getAsJsonArray("fixture");
                             Gson gson = new GsonBuilder().create();
 
-                            for (int i = 0; i < jArray.size(); i++) {
-                                JsonObject obj = jArray.get(i).getAsJsonObject();
+                            for (int i = 1; i < jArray.size(); i++) {
+                                JsonObject obj = jArray.get(i-1).getAsJsonObject();
                                 GroupItem item = gson.fromJson(obj, GroupItem.class);
-                                if(i==0) {
-                                    int updateItem = 1;
-                                    item.setId(updateItem);
-                                }else {
-                                    item.setId(i+1);
-                                }
+                                item.setGroupId(groupNum);//i am not clear this is require or not
+                                    // @yelinaung why you forgot to set this? T_T
+                                item.setId(i);
                                 if (!item.getMatch().getGoal1().equalsIgnoreCase("")) {
                                     item.getMatch().setScore();
                                 }
-                                item.setGroupId(groupNum);//i am not clear this is require or not
-                                // @yelinaung why you forgot to set this? T_T
+
                                 mItems.add(item);
                                 mGroupItemDao.create(item);
                                 mAdapter = new FixturesAdapter(getActivity(), mItems);
@@ -183,6 +177,8 @@ public class MainFragment extends Fragment {
                                 mAdapter.notifyDataSetChanged();
 
                             }
+
+
 
                         }
                     });

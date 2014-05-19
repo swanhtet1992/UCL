@@ -1,6 +1,7 @@
 package me.sh.android.ucl.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,6 @@ public class FixturesAdapter extends ArrayAdapter<GroupItem> {
         }
 
         holder.date.setText(mItems.get(position).getDate());
-
         holder.team1.setText(mItems.get(position).getMatch().getTeam1());
         holder.team2.setText(mItems.get(position).getMatch().getTeam2());
         holder.score.setText(mItems.get(position).getMatch().getScore());
