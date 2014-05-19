@@ -9,12 +9,18 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "GroupItem")
 public class GroupItem {
-    @DatabaseField public int groupNum;
-    @DatabaseField public String date;
-    @DatabaseField (foreign = true,foreignAutoCreate = true,foreignAutoRefresh = true)
+    @DatabaseField(generatedId = true)
+    public int id;
+    @DatabaseField
+    public int groupNum;
+    @DatabaseField
+    public String date;
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
     public MatchItem match;
-    @DatabaseField public String time;
-    @DatabaseField public String stadium;
+    @DatabaseField
+    public String time;
+    @DatabaseField
+    public String stadium;
 
     public GroupItem() {
     }
@@ -25,7 +31,17 @@ public class GroupItem {
         this.match = match;
         this.time = time;
         this.stadium = stadium;
+        setId(id);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public int getGroupId() {
         return groupNum;

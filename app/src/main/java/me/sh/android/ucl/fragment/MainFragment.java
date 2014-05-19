@@ -65,7 +65,6 @@ public class MainFragment extends Fragment {
         ButterKnife.inject(this, rootView);
         dialog = new ProgressDialog(getActivity());
         mGroupItemDao = new GroupItemDao(getActivity()); // @yelinaung don't forget to instantiate object. hehe :P
-
         setHasOptionsMenu(true);
 
         return rootView;
@@ -76,7 +75,6 @@ public class MainFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         mItems = (ArrayList<GroupItem>) mGroupItemDao.getGroupByGroupNum(groupNum);
-
         if (!mItems.isEmpty()) {
             mAdapter = new FixturesAdapter(getActivity(), mItems);
             listView.setAdapter(mAdapter);
@@ -111,9 +109,8 @@ public class MainFragment extends Fragment {
     }
 
     void getAllFixtures(final int group) {
-
-        // clear all the items first
         mItems.clear();
+
 
         Connection connection = new Connection(getActivity());
 
@@ -161,20 +158,25 @@ public class MainFragment extends Fragment {
                             JsonArray jArray = jObj.getAsJsonArray("fixture");
                             Gson gson = new GsonBuilder().create();
 
-                            for (int i = 0; i < jArray.size(); i++) {
-                                JsonObject obj = jArray.get(i).getAsJsonObject();
+                            for (int i = 1; i < jArray.size(); i++) {
+                                JsonObject obj = jArray.get(i - 1).getAsJsonObject();
                                 GroupItem item = gson.fromJson(obj, GroupItem.class);
-
+                                item.setGroupId(groupNum);//i am not clear this is require or not
+                                // @yelinaung why you forgot to set this? T_T
+                                item.setId(i);
                                 if (!item.getMatch().getGoal1().equalsIgnoreCase("")) {
                                     item.getMatch().setScore();
                                 }
+
                                 mItems.add(item);
-                                item.setGroupId(groupNum); // @yelinaung why you forgot to set this? T_T
                                 mGroupItemDao.create(item);
                                 mAdapter = new FixturesAdapter(getActivity(), mItems);
                                 listView.setAdapter(mAdapter);
                                 mAdapter.notifyDataSetChanged();
+
                             }
+
+
                         }
                     });
         } else {

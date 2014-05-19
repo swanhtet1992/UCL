@@ -25,8 +25,12 @@ public class MatchItem {
         this.goal_1 = goal_1;
         this.goal_2 = goal_2;
         this.score = score;
-    }
+        setMatchid(id);
 
+    }
+    public void setMatchid(int matchid){
+        this.id = matchid;
+    }
     public String getTeam1() {
         return team_1;
     }
